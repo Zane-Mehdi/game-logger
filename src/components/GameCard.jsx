@@ -1,6 +1,7 @@
 // src/components/GameCard.jsx
 import React, { useState } from 'react'
 import { GAME_STATUS } from '../utils/constants'
+import { Link } from 'react-router-dom'
 
 const GameCard = ({ game, onAdd, onRemove, onUpdate, isInLibrary, libraryView = false }) => {
     const [isLoading, setIsLoading] = useState(false)
@@ -39,12 +40,14 @@ const GameCard = ({ game, onAdd, onRemove, onUpdate, isInLibrary, libraryView = 
     return (
         <div className="game-card">
             <div className="game-card-image-container">
-                <img
-                    src={game.background_image || game.cover_url || '/placeholder-game.jpg'}
-                    alt={game.name || game.title}
-                    className="game-card-image"
-                    loading="lazy"
-                />
+                <Link to={`/games/${game.rawg_id}`}>
+                    <img
+                        src={game.background_image || game.cover_url || '/placeholder-game.jpg'}
+                        alt={game.name || game.title}
+                        className="game-card-image"
+                        loading="lazy"
+                    />
+                </Link>
                 {game.metacritic && (
                     <div className="game-metacritic">
                         {game.metacritic}
@@ -53,7 +56,9 @@ const GameCard = ({ game, onAdd, onRemove, onUpdate, isInLibrary, libraryView = 
             </div>
 
             <div className="game-card-content">
-                <h3 className="game-card-title">{game.name || game.title}</h3>
+                <h3 className="game-card-title">
+                    <Link to={`/games/${game.id}`}>{game.name || game.title}</Link>
+                </h3>
 
                 <div className="game-card-meta">
                     <p className="game-meta-item">

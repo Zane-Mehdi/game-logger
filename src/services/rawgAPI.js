@@ -33,6 +33,13 @@ const mockGames = [
         stores: [
             { store: { id: 1, name: "Steam" } },
             { store: { id: 3, name: "PlayStation Store" } }
+        ],
+        description: "<p><strong>Grand Theft Auto V</strong> is an open world action-adventure game developed by Rockstar North. Players freely roam the open countryside and the fictional city of Los Santos, based on Los Angeles.</p>",
+        developers: [ { name: "Rockstar North" } ],
+        publishers: [ { name: "Rockstar Games" } ],
+        screenshots: [
+            "https://media.rawg.io/media/screenshots/1a1/1a1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e.jpg",
+            "https://media.rawg.io/media/screenshots/2b2/2b2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e.jpg"
         ]
     },
     {
@@ -46,6 +53,13 @@ const mockGames = [
         platforms: [
             { platform: { id: 18, name: "PlayStation 4" } },
             { platform: { id: 4, name: "PC" } }
+        ],
+        description: "<p><strong>The Witcher 3: Wild Hunt</strong> is a story-driven, open world RPG set in a visually stunning fantasy universe full of meaningful choices and impactful consequences.</p>",
+        developers: [ { name: "CD Projekt Red" } ],
+        publishers: [ { name: "CD Projekt" } ],
+        screenshots: [
+            "https://media.rawg.io/media/screenshots/3c3/3c3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e.jpg",
+            "https://media.rawg.io/media/screenshots/4d4/4d4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e.jpg"
         ]
     },
     {
@@ -59,6 +73,12 @@ const mockGames = [
         platforms: [
             { platform: { id: 4, name: "PC" } },
             { platform: { id: 1, name: "Xbox One" } }
+        ],
+        description: "<p><strong>Limbo</strong> is a puzzle-platform video game developed by independent studio Playdead. The game is presented in black-and-white tones, using lighting, film grain effects and minimal ambient sounds to create an eerie atmosphere.</p>",
+        developers: [ { name: "Playdead" } ],
+        publishers: [ { name: "Playdead" } ],
+        screenshots: [
+            "https://media.rawg.io/media/screenshots/5e5/5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e.jpg"
         ]
     },
     {
@@ -72,6 +92,12 @@ const mockGames = [
         platforms: [
             { platform: { id: 4, name: "PC" } },
             { platform: { id: 16, name: "PlayStation 3" } }
+        ],
+        description: "<p><strong>Portal 2</strong> is a first-person puzzle-platform video game developed and published by Valve. The game features a series of puzzles that must be solved by teleporting the player's character and simple objects using the portal gun.</p>",
+        developers: [ { name: "Valve" } ],
+        publishers: [ { name: "Valve" } ],
+        screenshots: [
+            "https://media.rawg.io/media/screenshots/6f6/6f6e6e6e6e6e6e6e6e6e6e6e6e6e6e6e.jpg"
         ]
     }
 ]
@@ -109,8 +135,10 @@ export const rawgAPI = {
     // Get detailed game information
     async getGameDetails(id) {
         try {
+            console.log(id)
+            console.log(mockGames.find(g => g.id === id))
             if (!API_KEY) {
-                return mockGames.find(g => g.id === id) || null
+                return mockGames.find(g => String(g.id) === String(id)) || null
             }
 
             const response = await rawgClient.get(`/games/${id}`)

@@ -4,6 +4,8 @@ import { AuthProvider, useAuth } from './contexts/AuthContext'
 import Navigation from './components/Navigation'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
+import GameDetail from './pages/GameDetail'
+import { Routes, Route } from 'react-router-dom'
 import './styles/index.css'
 
 const AppContent = () => {
@@ -22,7 +24,16 @@ const AppContent = () => {
     return (
         <div className="app">
             <Navigation />
-            {user ? <Dashboard /> : <Login />}
+            <Routes>
+                {user ? (
+                    <>
+                        <Route path="/" element={<Dashboard />} />
+                        <Route path="/games/:id" element={<GameDetail />} />
+                    </>
+                ) : (
+                    <Route path="/*" element={<Login />} />
+                )}
+            </Routes>
         </div>
     )
 }

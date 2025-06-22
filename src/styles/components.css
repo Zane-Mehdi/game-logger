@@ -357,3 +357,57 @@
         font-size: var(--font-xs);
     }
 }
+
+/* Game Detail Page */
+.game-detail {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: var(--spacing-lg);
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    color: var(--text-primary);
+}
+
+.game-detail h2 {
+    font-size: var(--font-xl);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.game-detail-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.game-detail-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-base);
+}
+
+.game-detail-meta p {
+    margin: 0;
+}
+
+.game-detail-description {
+    background-color: var(--bg-tertiary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    line-height: 1.6;
+    font-size: var(--font-base);
+    color: var(--text-secondary);
+}
+
+.game-detail-loading,
+.game-detail-error,
+.game-detail-empty {
+    text-align: center;
+    padding: var(--spacing-xxl);
+    color: var(--text-secondary);
+    font-size: var(--font-base);
+}
