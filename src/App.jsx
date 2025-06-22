@@ -1,34 +1,38 @@
+// src/App.jsx
 import React from 'react'
-import { useAuth, AuthProvider } from './context/AuthContext'
+import { AuthProvider, useAuth } from './contexts/AuthContext'
 import Navigation from './components/Navigation'
-import GameSearch from './components/GameSearch'
-import Library from './components/Library'
-import Login from './components/Login'
+import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
+import './styles/index.css'
 
-const InnerApp = () => {
+const AppContent = () => {
     const { user, loading } = useAuth()
+    console.log("hello")
 
-    if (loading) return <div style={{ textAlign: 'center', padding: '2rem' }}>Loading...</div>
+    if (loading) {
+        return (
+            <div className="app-loading">
+                <div className="loading-spinner"></div>
+                <p>Loading Game Logger...</p>
+            </div>
+        )
+    }
 
     return (
-        <div style={{ minHeight: '100vh', backgroundColor: '#0f0f0f', color: '#e0e0e0' }}>
+        <div className="app">
             <Navigation />
-            {user ? (
-                <div style={{ maxWidth: '1200px', margin: '2rem auto', padding: '0 1rem' }}>
-                    <GameSearch />
-                    <Library />
-                </div>
-            ) : (
-                <Login />
-            )}
+            {user ? <Dashboard /> : <Login />}
         </div>
     )
 }
 
-export default function App() {
+const App = () => {
     return (
         <AuthProvider>
-            <InnerApp />
+            <AppContent />
         </AuthProvider>
     )
 }
+
+export default App
