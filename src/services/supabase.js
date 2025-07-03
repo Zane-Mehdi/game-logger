@@ -31,6 +31,13 @@ export const gameService = {
         return await res.json();
     },
 
+    async checkGameExists(rawgId) {
+        const games = await this.getUserGames(); // gets current user's games
+        console.log(games)
+        console.log(rawgId)
+        return games.some(g => g.rawg_id === Number(rawgId));
+    },
+
     async updateGame(gameId, updates) {
         const token = await getJWT();
         const res = await fetch('/.netlify/functions/supabase', {

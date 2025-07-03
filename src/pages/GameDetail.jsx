@@ -23,10 +23,12 @@ const GameDetail = () => {
           return
         }
         const data = await rawgAPI.getGameDetails(id)
+        console.log(data)
         setGame(data)
 
         if (user) {
-          const exists = await gameService.checkGameExists(user.id, String(id))
+          const exists = await gameService.checkGameExists(data.id, String(id))
+          console.log(exists)
           setIsInLibrary(exists)
         }
       } catch (err) {
@@ -107,19 +109,19 @@ const GameDetail = () => {
                     ))}
                   </div>
               )}
-
-              {!isInLibrary && (
-                  <button
-                      className="btn btn-primary"
-                      onClick={handleAddToLibrary}
-                      disabled={adding}
-                  >
-                    {adding ? 'Adding...' : 'Add to Library'}
-                  </button>
-              )}
-
               {game.description && (
                   <div className="game-detail-description" dangerouslySetInnerHTML={{ __html: game.description }} />
+              )}
+              {!isInLibrary && (
+                  <div style={{display: 'flex', justifyContent: 'center', marginTop: '2rem'}}>
+                    <button
+                        className="btn btn-primary"
+                        onClick={handleAddToLibrary}
+                        disabled={adding}
+                    >
+                      {adding ? 'Adding...' : 'Add to Library'}
+                    </button>
+                  </div>
               )}
             </>
         )}
