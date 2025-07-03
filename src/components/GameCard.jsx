@@ -40,7 +40,7 @@ const GameCard = ({ game, onAdd, onRemove, onUpdate, isInLibrary, libraryView = 
     return (
         <div className="game-card">
             <div className="game-card-image-container">
-                <Link to={`/games/${game.rawg_id}`}>
+                <Link to={`/games/${game.rawg_id || game.id}`}>
                     <img
                         src={game.background_image || game.cover_url || '/placeholder-game.jpg'}
                         alt={game.name || game.title}

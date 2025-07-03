@@ -1,6 +1,7 @@
 // src/App.jsx
 import React from 'react'
 import { AuthProvider, useAuth } from './contexts/AuthContext'
+import { ThemeProvider } from './contexts/ThemeContext'
 import Navigation from './components/Navigation'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
@@ -40,9 +41,11 @@ const AppContent = () => {
 
 const App = () => {
     return (
-        <AuthProvider>
-            <AppContent />
-        </AuthProvider>
+        <ThemeProvider>
+            <AuthProvider>
+                <AppContent />
+            </AuthProvider>
+        </ThemeProvider>
     )
 }
 

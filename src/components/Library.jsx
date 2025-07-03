@@ -1,9 +1,8 @@
-// src/components/Library.jsx
 import React, { useState, useEffect } from 'react'
-import { gameService } from '../services/supabase'
 import { useAuth } from '../contexts/AuthContext'
 import GameCard from './GameCard'
 import { GAME_STATUS } from '../utils/constants'
+import { gameService } from '../services/supabase.js'
 
 const Library = () => {
     const [games, setGames] = useState([])
@@ -29,7 +28,7 @@ const Library = () => {
         try {
             setLoading(true)
             setError(null)
-            const data = await gameService.getUserGames(user.id)
+            const data = await gameService.getUserGames()
             setGames(data)
         } catch (error) {
             console.error('Error fetching games:', error)
@@ -41,7 +40,7 @@ const Library = () => {
 
     const fetchStats = async () => {
         try {
-            const userStats = await gameService.getUserStats(user.id)
+            const userStats = await gameService.getUserStats()
             setStats(userStats)
         } catch (error) {
             console.error('Error fetching stats:', error)
@@ -64,7 +63,7 @@ const Library = () => {
         try {
             await gameService.deleteGame(gameId)
             setGames(games.filter(g => g.id !== gameId))
-            fetchStats() // Update stats after removal
+            fetchStats()
         } catch (error) {
             console.error('Error removing game:', error)
             alert('Failed to remove game. Please try again.')
@@ -75,7 +74,7 @@ const Library = () => {
         try {
             const updatedGame = await gameService.updateGame(gameId, updates)
             setGames(games.map(g => g.id === gameId ? { ...g, ...updatedGame } : g))
-            fetchStats() // Update stats after status change
+            fetchStats()
         } catch (error) {
             console.error('Error updating game:', error)
             alert('Failed to update game. Please try again.')
@@ -142,8 +141,7 @@ const Library = () => {
                     <p className="empty-message">
                         {filter === 'all'
                             ? "Your library is empty. Start by searching for games to add!"
-                            : `No games with status "${GAME_STATUS[filter]}" in your library.`
-                        }
+                            : `No games with status "${GAME_STATUS[filter]}" in your library.`}
                     </p>
                 </div>
             ) : (

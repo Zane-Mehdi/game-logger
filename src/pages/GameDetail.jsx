@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { rawgAPI } from '../services/rawgAPI'
 import { gameService } from '../services/supabase'
 import { useAuth } from '../contexts/AuthContext'
-
 const GameDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()

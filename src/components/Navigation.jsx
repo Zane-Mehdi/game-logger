@@ -1,6 +1,7 @@
 // src/components/Navigation.jsx
 import React from 'react'
 import { useAuth } from '../contexts/AuthContext'
+import ThemeToggle from './ThemeToggle'
 
 const Navigation = () => {
     const { user, signOut } = useAuth()
@@ -13,6 +14,7 @@ const Navigation = () => {
                 </div>
 
                 <div className="nav-links">
+                    <ThemeToggle />
                     {user && (
                         <>
                             <div className="user-info">
