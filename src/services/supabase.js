@@ -10,7 +10,7 @@ async function getJWT() {
 export const gameService = {
     async getUserGames() {
         const token = await getJWT();
-        const res = await fetch('/.netlify/functions/supabase?stats=false', {
+        const res = await fetch('/api/supabase?stats=false', {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -20,7 +20,7 @@ export const gameService = {
 
     async addGame(gameData) {
         const token = await getJWT();
-        const res = await fetch('/.netlify/functions/supabase', {
+        const res = await fetch('/api/supabase', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export const gameService = {
 
     async updateGame(gameId, updates) {
         const token = await getJWT();
-        const res = await fetch('/.netlify/functions/supabase', {
+        const res = await fetch('/api/supabase', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export const gameService = {
 
     async deleteGame(gameId) {
         const token = await getJWT();
-        await fetch('/.netlify/functions/supabase', {
+        await fetch('/api/supabase', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export const gameService = {
 
     async getUserStats() {
         const token = await getJWT();
-        const res = await fetch('/.netlify/functions/supabase?stats=true', {
+        const res = await fetch('/api/supabase?stats=true', {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

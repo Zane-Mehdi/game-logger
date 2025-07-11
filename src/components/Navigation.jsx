@@ -1,16 +1,22 @@
-// src/components/Navigation.jsx
 import React from 'react'
 import { useAuth } from '../contexts/AuthContext'
+import { useTheme } from '../contexts/ThemeContext'
 import ThemeToggle from './ThemeToggle'
+import {getLogoByTheme} from "../utils/getImage.jsx";
 
 const Navigation = () => {
     const { user, signOut } = useAuth()
+    const { theme } = useTheme()
+
+    const logoSrc = getLogoByTheme(theme)
+
 
     return (
         <nav className="navbar">
             <div className="nav-container">
                 <div className="nav-brand">
-                    <h1 className="logo">🎮 Game Logger</h1>
+                    <img src={logoSrc} width={50} height={50} alt="Game Logger Logo" />
+                    <h1 className="logo">Game Logger</h1>
                 </div>
 
                 <div className="nav-links">

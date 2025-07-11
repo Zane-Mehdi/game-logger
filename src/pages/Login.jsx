@@ -1,6 +1,8 @@
 // src/pages/Login.jsx
 import React, { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
+import {useTheme} from "../contexts/ThemeContext.jsx";
+import {getLogoByTheme} from "../utils/getImage.jsx";
 
 const Login = () => {
     const [email, setEmail] = useState('')
@@ -8,6 +10,9 @@ const Login = () => {
     const [isSignUp, setIsSignUp] = useState(false)
     const [loading, setLoading] = useState(false)
     const { signIn, signUp, error, clearError } = useAuth()
+    const { theme } = useTheme()
+
+    const logoSrc = getLogoByTheme(theme)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -56,7 +61,8 @@ const Login = () => {
             <div className="auth-container">
                 <div className="auth-box">
                     <div className="auth-header">
-                        <h1 className="auth-logo">🎮 Game Logger</h1>
+                        <img src={logoSrc} width={100} height={100} alt="Game Logger Logo"/>
+                        <h1 className="auth-logo">Game Logger</h1>
                         <h2 className="auth-title">
                             {isSignUp ? 'Create Your Account' : 'Welcome Back'}
                         </h2>
@@ -69,7 +75,7 @@ const Login = () => {
                     </div>
 
                     <form onSubmit={handleSubmit} className="auth-form">
-                        <div className="form-group">
+                    <div className="form-group">
                             <label htmlFor="email" className="form-label">Email</label>
                             <input
                                 id="email"

@@ -34,7 +34,7 @@ import { rawgAPI } from './rawgAPI';
 export const geminiAPI = {
     async getRecommendations(userGames) {
         console.log(userGames)
-        const response = await fetch('/.netlify/functions/game-recommender', {
+        const response = await fetch('/api/game-recommender', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ games: userGames })
