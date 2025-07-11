@@ -142,9 +142,7 @@ const Login = () => {
                     <h3>Why Game Logger?</h3>
                     <ul className="features-list">
                         <li>🎯 Track your gaming progress</li>
-                        <li>📊 See your gaming statistics</li>
                         <li>🏆 Manage your game backlog</li>
-                        <li>⭐ Rate and review games</li>
                         <li>🔍 Discover new games to play</li>
                     </ul>
                 </div>
