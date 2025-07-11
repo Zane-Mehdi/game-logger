@@ -7,7 +7,6 @@ const GameCard = ({ game, onAdd, onRemove, onUpdate, isInLibrary, libraryView = 
     const [isLoading, setIsLoading] = useState(false)
 
     // Format genres and platforms for display
-    console.log(game)
     const genres = Array.isArray(game.genres)
         ? game.genres.map(g => g.name).join(', ')
         : game.genres || 'N/A'

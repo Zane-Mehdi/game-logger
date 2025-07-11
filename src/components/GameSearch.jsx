@@ -147,17 +147,23 @@ const GameSearch = () => {
                 <div className="search-results">
                     <p className="results-count">Found {results.length} games</p>
                     <div className="games-grid">
-                        {results.map(game => (
-                            <GameCard
-                                key={game.id}
-                                game={game}
-                                onAdd={handleAddGame}
-                                isInLibrary={libraryGames.has(game.id)}
-                            />
-                        ))}
+                        {results.map(game => {
+                            if (!game.tba) {
+                                return (
+                                    <GameCard
+                                        key={game.id}
+                                        game={game}
+                                        onAdd={handleAddGame}
+                                        isInLibrary={libraryGames.has(game.id)}
+                                    />
+                                );
+                            }
+                            return null;
+                        })}
                     </div>
                 </div>
             )}
+
 
             {!loading && query && results.length === 0 && (
                 <div className="no-results">

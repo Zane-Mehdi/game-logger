@@ -23,12 +23,10 @@ const GameDetail = () => {
           return
         }
         const data = await rawgAPI.getGameDetails(id)
-        console.log(data)
         setGame(data)
 
         if (user) {
           const exists = await gameService.checkGameExists(data.id, String(id))
-          console.log(exists)
           setIsInLibrary(exists)
         }
       } catch (err) {
@@ -60,7 +58,6 @@ const GameDetail = () => {
       setIsInLibrary(true)
       alert(`${game.name} added to your library!`)
     } catch (error) {
-      console.error('Error adding game:', error)
       alert('Failed to add game.')
     } finally {
       setAdding(false)

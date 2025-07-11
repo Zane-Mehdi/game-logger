@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
         switch (type) {
             case 'search':
                 response = await rawgClient.get('/games', {
-                    params: { search, search_precise: true, search_exact: true, page, page_size: pageSize },
+                    params: { search, search_precise: false, page, page_size: pageSize },
                 });
                 break;
             case 'details':

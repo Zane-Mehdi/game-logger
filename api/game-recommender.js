@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
         }
 
         const gameNames = games.map(g => g.name || g.title).filter(Boolean).join(', ');
-        const prompt = `You are a game recommendation assistant. Based on the following list of games: ${gameNames}, suggest 15 similar games. Return ONLY a JSON array like ["Game A", "Game B", "Game C".... etc]. RAWGAPI exact Specific Names. No explanation.`;
+        const prompt = `You are a game recommendation assistant. Based on the following list of games: ${gameNames}, suggest 20 similar games. Return ONLY a JSON array like ["Game A", "Game B", "Game C".... etc]. RAWGAPI exact Specific Names. No explanation.`;
 
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
 

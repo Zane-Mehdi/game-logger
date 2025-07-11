@@ -1,5 +1,4 @@
 export const getLogoByTheme = (theme) => {
-    console.log(theme)
     switch (theme) {
         case 'dark':
             return '/game-logger-white.png'

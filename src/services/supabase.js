@@ -33,8 +33,6 @@ export const gameService = {
 
     async checkGameExists(rawgId) {
         const games = await this.getUserGames(); // gets current user's games
-        console.log(games)
-        console.log(rawgId)
         return games.some(g => g.rawg_id === Number(rawgId));
     },
 

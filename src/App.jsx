@@ -11,7 +11,6 @@ import './styles/index.css'
 
 const AppContent = () => {
     const { user, loading } = useAuth()
-    console.log("hello")
 
     if (loading) {
         return (

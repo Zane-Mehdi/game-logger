@@ -8,7 +8,7 @@ const AIRecommendations = () => {
     const { user } = useAuth();
     const [recommendations, setRecommendations] = useState([]);
     const [allRecommendations, setAllRecommendations] = useState([]);
-    const [visibleCount, setVisibleCount] = useState(3);
+    const [visibleCount, setVisibleCount] = useState(5);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [userHasGames, setUserHasGames] = useState(false);
@@ -24,11 +24,6 @@ const AIRecommendations = () => {
 
                 if (userGames.length > 0) {
                     const recommendedData = await geminiAPI.getRecommendations(userGames);
-
-                    // Filter out games the user already has
-                    console.log(recommendedData)
-                    console.log(userGames)
-                    console.log(allRecommendations)
                     const geminiTitles = recommendedData.rawTitles?.map(title => title.toLowerCase()) || [];
 
                     const filtered = recommendedData.results?.filter(g => {
