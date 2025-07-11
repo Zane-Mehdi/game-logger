@@ -2,7 +2,10 @@
 
 A modern, full-stack web application for tracking your gaming journey. Built with React, Node.js, Express, and Supabase, Game Logger helps you organize your game library, discover new titles, and get AI-powered recommendations.
 
-![Game Logger Dashboard](https://via.placeholder.com/800x400/0f172a/ffffff?text=Game+Logger+Dashboard)
+<p align="center">
+  <img src="public/dashboard.png" alt="Game Logger Dashboard" width="48%" />
+  <img src="public/ai.png" alt="Game Logger AI recommender" width="48%" />
+</p>
 
 ## ✨ Features
 
