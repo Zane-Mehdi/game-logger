@@ -48,7 +48,7 @@ A modern, full-stack web application for tracking your gaming journey. Built wit
 ### Frontend
 - **React 18** - Modern React with hooks and functional components
 - **React Router** - Client-side routing
-- **CSS3** - Custom CSS with CSS variables and modern features
+- **CSS** - Custom CSS with CSS variables and modern features
 - **Vite** - Fast development and build tool
 
 ### Backend
