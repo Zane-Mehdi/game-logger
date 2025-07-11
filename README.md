@@ -61,42 +61,6 @@ A modern, full-stack web application for tracking your gaming journey. Built wit
 ### Database
 - **PostgreSQL** (via Supabase) - Relational database for user data and game library
 
-## 📁 Project Structure
-
-```
-game-logger/
-├── client/                     # Frontend React application
-│   ├── src/
-│   │   ├── components/         # Reusable React components
-│   │   │   ├── GameCard.jsx
-│   │   │   ├── GameSearch.jsx
-│   │   │   ├── Library.jsx
-│   │   │   ├── Navigation.jsx
-│   │   │   ├── ThemeToggle.jsx
-│   │   │   └── AIRecommendations.jsx
-│   │   ├── contexts/          # React Context providers
-│   │   │   ├── AuthContext.jsx
-│   │   │   └── ThemeContext.jsx
-│   │   ├── pages/             # Page components
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── GameDetail.jsx
-│   │   │   └── Login.jsx
-│   │   ├── services/          # API service layers
-│   │   │   ├── authclient.js
-│   │   │   ├── geminiAPI.js
-│   │   │   ├── rawgAPI.js
-│   │   │   └── supabase.js
-│   │   ├── utils/             # Utility functions
-│   │   └── styles/            # CSS files
-│   │       └── components.css
-├── server/                    # Backend Express application
-│   ├── routes/
-│   │   ├── rawg.js           # RAWG API integration
-│   │   ├── game-recommender.js # Gemini AI integration
-│   │   └── supabase.js       # Database operations
-└── README.md
-```
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -271,7 +235,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [RAWG API](https://rawg.io/apidocs) for comprehensive game database
 - [Supabase](https://supabase.com/) for backend infrastructure
 - [Google Gemini](https://ai.google.dev/) for AI-powered recommendations
-- [Inter Font](https://fonts.google.com/specimen/Inter) for beautiful typography
 
 ## 📞 Support
 
